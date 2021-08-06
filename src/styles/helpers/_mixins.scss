@@ -1,0 +1,46 @@
+@mixin trans($prop, $timing-function, $dur) {
+  transition: {
+    property: $prop;
+    @if $dur {
+      duration: $dur;
+    } @else {
+      duration: $duration;
+    }
+    timing-function: $timing-function;
+  }
+}
+
+//$levels: (
+//    media:      (#{$break_xs}, #{$break_sm}, #{$break_md}, #{$break_lg}, #{$break_xl}),
+//    //          320       576      768      968      1280
+//    section:    (45px, 60px, 80px, 80px, 95px),
+//    heading:    (36px, 36px, 40px, 45px, 45px),
+//);
+
+@mixin margin($direction, $color) {
+
+    $mapGet: map-get($levels, $color);
+    margin-#{$direction}: nth($mapGet, length($mapGet));
+
+    @for $i from 1 through length($mapGet) - 1 {
+        $mediaName: nth(map-get($levels, media), $i);
+
+        @media (max-width: $mediaName) {
+            margin-#{$direction}: nth($mapGet, $i);
+        }
+    }
+}
+
+@mixin padding($direction, $color) {
+
+  $mapGet: map-get($levels, $color);
+  padding-#{$direction}: nth($mapGet, length($mapGet));
+
+  @for $i from 1 through length($mapGet) - 1 {
+      $mediaName: nth(map-get($levels, media), $i);
+
+      @media (max-width: $mediaName) {
+        padding-#{$direction}: nth($mapGet, $i);
+      }
+  }
+}

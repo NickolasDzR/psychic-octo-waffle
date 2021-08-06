@@ -1,0 +1,22 @@
+extends layouts/default
+include helpers/mixins
+
+include ../blocks/modules/header/header
+
+block variables
+    - const title = "laravel mix example"
+
+block content
+    .container
+        .row
+            div(class="w-2/12 xs:w-4/12 sm:w-6/12 md:w-8/12 lg:w-10/12 xl:w-full px-4")
+                p.text-center.text-whatever.font-sans.font-bold.my-5 some text here
+            .w-12.px-4.bg-whatever.bg-opacity-25(class="md:w-4 lg:w-6")
+                p.text-center.text-whatever.font-sans.font-bold.my-5 some text here too
+            .w-full.px-4
+                p.text-center.text-whatever.font-sans.font-bold.my-5 column with full width
+    +header
+
+
+block scripts
+    include layouts/scripts

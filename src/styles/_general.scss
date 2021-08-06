@@ -1,0 +1,22 @@
+h1, h2, h3, h4, h5, h6, ul {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: $font-family-base;
+    background-color: $white;
+    color: $dark;
+    min-width: 320px;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}

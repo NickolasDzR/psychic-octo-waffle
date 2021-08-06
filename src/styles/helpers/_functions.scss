@@ -1,0 +1,21 @@
+@function rem($px) {
+    @return ($px / 16) +rem;
+}
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function max($numbers...) {
+    @return m#{a}x(#{$numbers});
+  }
+  
+@function min($numbers...) {
+    @return m#{i}n(#{$numbers});
+}
+
+@function fontSize($maxPx, $minPx) {
+    $m: ($maxPx - $minPx) / ($containerMax - $containerMin);
+    $b: rem($minPx - ($m * $containerMin));
+    @return calc(#{$m} * 100vw + #{$b});
+}
